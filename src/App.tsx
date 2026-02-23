@@ -81,7 +81,7 @@ function App() {
                 <div className="md:w-1/2 bg-gradient-to-br from-gray-900 to-gray-800 p-8 flex items-center justify-center">
                   <img
                     src="/files_3621917-2026-02-23T19-25-35-947Z-Captura_de_pantalla_(2).png"
-                    alt="SUAVER - Tubos de colores"
+                    alt="SUAVER"
                     className="w-full h-full object-contain rounded-2xl"
                   />
                 </div>
@@ -93,8 +93,7 @@ function App() {
                       SUAVER
                     </h3>
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      Tubos de colores vibrantes disponibles en una amplia gama de tonalidades.
-                      Perfectos para tus necesidades.
+                      Es un producto muy conocido, revolucionario que te permite guardar el cigarro encendido y continuar fumándolo en el momento que desees sin alterar su sabor Tiene un cierre que es hermético, por eso al cerrarlo evitamos olores y manchas. Cómodo y fácil de transportar: Es compacto y liviano, esto lo hace muy fácil de llevar y además está construido en plástico de primera calidad y con una alta resistencia al calor, lo que garantiza 100% de seguridad al almacenar el cigarro encendido. Fácil de limpiar: El dispositivo se limpia con agua solo con ponerlo debajo de la canilla
                     </p>
                   </div>
 
