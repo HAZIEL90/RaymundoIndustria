@@ -1,9 +1,6 @@
-import { MapPin, Clock, ShoppingBag, Instagram } from 'lucide-react';
-import { useProducts } from './hooks/useProducts';
-import { ProductCard, ProductPlaceholder } from './components/ProductCard';
+import { MapPin, Clock, Instagram } from 'lucide-react';
 
 function App() {
-  const { products, loading } = useProducts();
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50">
       {/* Header */}
@@ -22,7 +19,6 @@ function App() {
           </div>
           <nav className="hidden md:flex gap-6 items-center">
             <a href="#inicio" className="text-gray-700 hover:text-green-600 transition">Inicio</a>
-            <a href="#productos" className="text-gray-700 hover:text-green-600 transition">Productos</a>
             <a href="#contacto" className="text-gray-700 hover:text-green-600 transition">Contacto</a>
             <a
               href="https://www.instagram.com/raymundoindustria/"
@@ -64,36 +60,6 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Products Section */}
-      <section id="productos" className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <ShoppingBag className="mx-auto text-green-600 mb-4" size={48} />
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Nuestros Productos</h2>
-            <p className="text-gray-600 text-lg">Calidad premium para tu cultivo</p>
-          </div>
-
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
-              <p className="mt-4 text-gray-600">Cargando productos...</p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-              {products.length < 3 && (
-                <>
-                  <ProductPlaceholder />
-                  {products.length < 2 && <ProductPlaceholder />}
-                </>
-              )}
-            </div>
-          )}
         </div>
       </section>
 
