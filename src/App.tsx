@@ -112,10 +112,15 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center">
+                  <a
+                    href="https://www.instagram.com/direct/t/17844202904537511/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
                     <p className="text-sm font-semibold mb-2">Consulta por disponibilidad y precios</p>
                     <p className="text-2xl font-bold">Venta x Mayor y Menor</p>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
