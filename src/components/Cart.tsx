@@ -9,23 +9,10 @@ interface CartProps {
 export default function Cart({ isOpen, onClose }: CartProps) {
   const { items, removeItem, updateQuantity, clearCart, total, itemCount } = useCart();
 
-  const handleWhatsAppOrder = () => {
+  const handleInstagramOrder = () => {
     if (items.length === 0) return;
 
-    let message = '¡Hola! Me gustaría hacer el siguiente pedido:\n\n';
-
-    items.forEach((item, index) => {
-      message += `${index + 1}. ${item.product.name}\n`;
-      message += `   Cantidad: ${item.quantity}\n`;
-      message += `   Precio unitario: $${item.product.price.toFixed(2)}\n`;
-      message += `   Subtotal: $${(item.product.price * item.quantity).toFixed(2)}\n\n`;
-    });
-
-    message += `*TOTAL: $${total.toFixed(2)}*\n\n`;
-    message += '¿Está disponible?';
-
-    const whatsappUrl = `https://wa.me/5491138639476?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open('https://www.instagram.com/direct/t/17844202904537511/', '_blank');
   };
 
   if (!isOpen) return null;
@@ -120,10 +107,10 @@ export default function Cart({ isOpen, onClose }: CartProps) {
             </div>
 
             <button
-              onClick={handleWhatsAppOrder}
-              className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl py-4 font-bold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg mb-3"
+              onClick={handleInstagramOrder}
+              className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white rounded-xl py-4 font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg mb-3"
             >
-              Enviar pedido por WhatsApp
+              Enviar pedido por Instagram
             </button>
 
             <button
