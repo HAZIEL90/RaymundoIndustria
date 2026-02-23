@@ -1,9 +1,6 @@
 import { MapPin, Clock, ShoppingBag, Instagram } from 'lucide-react';
-import { useProducts } from './hooks/useProducts';
-import { ProductCard, ProductPlaceholder } from './components/ProductCard';
 
 function App() {
-  const { products, loading } = useProducts();
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50">
       {/* Header */}
@@ -76,24 +73,54 @@ function App() {
             <p className="text-gray-600 text-lg">Calidad premium para tu cultivo</p>
           </div>
 
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
-              <p className="mt-4 text-gray-600">Cargando productos...</p>
+          <div className="max-w-4xl mx-auto">
+            {/* SUAVER Product */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 border-2 border-gray-100">
+              <div className="md:flex">
+                {/* Image Section */}
+                <div className="md:w-1/2 bg-gradient-to-br from-gray-900 to-gray-800 p-8 flex items-center justify-center">
+                  <img
+                    src="/files_3621917-2026-02-23T19-25-35-947Z-Captura_de_pantalla_(2).png"
+                    alt="SUAVER - Tubos de colores"
+                    className="w-full h-full object-contain rounded-2xl"
+                  />
+                </div>
+
+                {/* Content Section */}
+                <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <h3 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
+                      SUAVER
+                    </h3>
+                    <p className="text-gray-600 text-lg leading-relaxed">
+                      Tubos de colores vibrantes disponibles en una amplia gama de tonalidades.
+                      Perfectos para tus necesidades.
+                    </p>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
+                      <span className="text-gray-700 font-medium">Variedad de colores</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500"></div>
+                      <span className="text-gray-700 font-medium">Alta calidad</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-green-500 to-blue-500"></div>
+                      <span className="text-gray-700 font-medium">Disponible por mayor y menor</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center">
+                    <p className="text-sm font-semibold mb-2">Consulta por disponibilidad y precios</p>
+                    <p className="text-2xl font-bold">Venta x Mayor y Menor</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-              {products.length < 3 && (
-                <>
-                  <ProductPlaceholder />
-                  {products.length < 2 && <ProductPlaceholder />}
-                </>
-              )}
-            </div>
-          )}
+          </div>
         </div>
       </section>
 
