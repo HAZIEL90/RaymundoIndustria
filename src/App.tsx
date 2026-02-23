@@ -1,6 +1,21 @@
 import { MapPin, Clock, ShoppingBag, Instagram } from 'lucide-react';
+import { useState } from 'react';
+import { CartProvider, useCart } from './contexts/CartContext';
+import Cart from './components/Cart';
+import { products } from './data/products';
 
-function App() {
+function AppContent() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { addItem, itemCount } = useCart();
+
+  const handleAddToCart = (e: React.MouseEvent, productId: string) => {
+    e.preventDefault();
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      addItem(product);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50">
       {/* Header */}
@@ -29,9 +44,35 @@ function App() {
             >
               <Instagram size={20} />
             </a>
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2"
+            >
+              <ShoppingBag size={20} />
+              {itemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+                  {itemCount}
+                </span>
+              )}
+            </button>
           </nav>
         </div>
       </header>
+
+      {/* Floating Cart Button - Mobile */}
+      <button
+        onClick={() => setIsCartOpen(true)}
+        className="md:hidden fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition-all z-40 hover:scale-110"
+      >
+        <ShoppingBag size={24} />
+        {itemCount > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-7 h-7 flex items-center justify-center">
+            {itemCount}
+          </span>
+        )}
+      </button>
+
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
       {/* Hero Section */}
       <section id="inicio" className="container mx-auto px-4 py-16">
@@ -75,12 +116,7 @@ function App() {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {/* SUAVER Product */}
-            <a
-              href="https://www.instagram.com/direct/t/17844202904537511/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-green-500"
-            >
+            <div className="block bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
               <div className="flex items-center gap-6 p-6">
                 <div className="w-32 h-32 flex-shrink-0 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4">
                   <img
@@ -93,7 +129,8 @@ function App() {
                   <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-pink-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                     SUAVER
                   </h3>
-                  <p className="text-gray-600 mb-3">Tubos de colores - Variedad disponible</p>
+                  <p className="text-gray-600 mb-1">Tubos de colores - Variedad disponible</p>
+                  <p className="text-green-600 font-bold text-xl mb-3">$1500</p>
                   <div className="flex items-center gap-2">
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
                       Disponible
@@ -101,14 +138,24 @@ function App() {
                     <span className="text-gray-500 text-sm">Mayor y Menor</span>
                   </div>
                 </div>
-                <div className="hidden md:flex items-center text-green-600 font-semibold">
-                  Consultar
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+                <button
+                  onClick={(e) => handleAddToCart(e, 'suaver-1')}
+                  className="hidden md:flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-all duration-300 font-semibold hover:scale-105"
+                >
+                  <ShoppingBag size={20} />
+                  Agregar
+                </button>
               </div>
-            </a>
+              <div className="md:hidden px-6 pb-6">
+                <button
+                  onClick={(e) => handleAddToCart(e, 'suaver-1')}
+                  className="w-full flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-all duration-300 font-semibold"
+                >
+                  <ShoppingBag size={20} />
+                  Agregar al carrito
+                </button>
+              </div>
+            </div>
 
             {/* Placeholder Products */}
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
@@ -269,6 +316,14 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <CartProvider>
+      <AppContent />
+    </CartProvider>
   );
 }
 
