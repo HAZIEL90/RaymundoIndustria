@@ -73,54 +73,64 @@ function App() {
             <p className="text-gray-600 text-lg">Calidad premium para tu cultivo</p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-6">
             {/* SUAVER Product */}
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 border-2 border-gray-100">
-              <div className="md:flex">
-                {/* Image Section */}
-                <div className="md:w-1/2 bg-gradient-to-br from-gray-900 to-gray-800 p-8 flex items-center justify-center">
+            <a
+              href="https://www.instagram.com/direct/t/17844202904537511/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-green-500"
+            >
+              <div className="flex items-center gap-6 p-6">
+                <div className="w-32 h-32 flex-shrink-0 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4">
                   <img
                     src="/files_3621917-2026-02-23T19-25-35-947Z-Captura_de_pantalla_(2).png"
                     alt="SUAVER"
-                    className="w-full h-full object-contain rounded-2xl"
+                    className="w-full h-full object-contain"
                   />
                 </div>
-
-                {/* Content Section */}
-                <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                  <div className="mb-6">
-                    <h3 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
-                      SUAVER
-                    </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                      Es un producto muy conocido, revolucionario que te permite guardar el cigarro encendido y continuar fumándolo en el momento que desees sin alterar su sabor Tiene un cierre que es hermético, por eso al cerrarlo evitamos olores y manchas. Cómodo y fácil de transportar: Es compacto y liviano, esto lo hace muy fácil de llevar y además está construido en plástico de primera calidad y con una alta resistencia al calor, lo que garantiza 100% de seguridad al almacenar el cigarro encendido. Fácil de limpiar: El dispositivo se limpia con agua solo con ponerlo debajo de la canilla
-                    </p>
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-pink-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
+                    SUAVER
+                  </h3>
+                  <p className="text-gray-600 mb-3">Tubos de colores - Variedad disponible</p>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      Disponible
+                    </span>
+                    <span className="text-gray-500 text-sm">Mayor y Menor</span>
                   </div>
+                </div>
+                <div className="hidden md:flex items-center text-green-600 font-semibold">
+                  Consultar
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                      <span className="text-gray-700 font-medium">Variedad de colores</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500"></div>
-                      <span className="text-gray-700 font-medium">Alta calidad</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-green-500 to-blue-500"></div>
-                      <span className="text-gray-700 font-medium">Disponible por mayor y menor</span>
-                    </div>
-                  </div>
+            {/* Placeholder Products */}
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+              <div className="flex items-center gap-6 p-6">
+                <div className="w-32 h-32 flex-shrink-0 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl flex items-center justify-center">
+                  <ShoppingBag className="text-gray-400" size={48} />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Más productos próximamente</h3>
+                  <p className="text-gray-500">Estamos trabajando para traerte más productos de calidad</p>
+                </div>
+              </div>
+            </div>
 
-                  <a
-                    href="https://www.instagram.com/direct/t/17844202904537511/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    <p className="text-sm font-semibold mb-2">Consulta por disponibilidad y precios</p>
-                    <p className="text-2xl font-bold">Venta x Mayor y Menor</p>
-                  </a>
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+              <div className="flex items-center gap-6 p-6">
+                <div className="w-32 h-32 flex-shrink-0 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl flex items-center justify-center">
+                  <ShoppingBag className="text-gray-400" size={48} />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Próximamente</h3>
+                  <p className="text-gray-500">Nuevas opciones para tu growshop</p>
                 </div>
               </div>
             </div>
